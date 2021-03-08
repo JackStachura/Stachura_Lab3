@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.Stachura_Lab3.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navigation_countries"
+        android:name="com.example.Stachura_Lab3.ui.countries.CountriesFragment"
+        android:label="@string/title_countries"
+        tools:layout="@layout/fragment_notifications" >
+
+        <action
+            android:id="@+id/action_navigation_countries_to_displayFragment"
+            app:destination="@id/displayFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_notifications"
+        android:name="com.example.Stachura_Lab3.ui.notifications.NotificationsFragment"
+        android:label="@string/title_notifications"
+        tools:layout="@layout/fragment_countries" />
+    <fragment
+        android:id="@+id/displayFragment"
+        android:name="com.example.Stachura_Lab3.ui.display.DisplayFragment"
+        android:label="Details"
+        tools:layout="@layout/display_fragment">
+        <action
+            android:id="@+id/action_displayFragment_to_navigation_countries"
+            app:destination="@id/navigation_countries" />
+    </fragment>
+</navigation>
